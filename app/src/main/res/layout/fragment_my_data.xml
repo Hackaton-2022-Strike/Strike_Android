@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".main.MyDataFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="15dp"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="이름"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="학년 반 번호"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_my_write"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/textview_round"
+            android:gravity="center_vertical"
+            android:text="내가 쓴 글 n개                                           >"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/linear"
+            app:layout_constraintStart_toStartOf="@id/linear"
+            app:layout_constraintTop_toBottomOf="@id/linear" />
+        <TextView
+            android:id="@+id/tv_my_errand"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/textview_round"
+            android:gravity="center_vertical"
+            android:text="내가 올린 심부름 n개                                >"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_my_write"
+            app:layout_constraintStart_toStartOf="@id/tv_my_write"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_write" />
+        <TextView
+            android:id="@+id/tv_my_data"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/textview_round"
+            android:gravity="center_vertical"
+            android:text="정보 변경                                                   >"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="@id/tv_my_errand"
+            app:layout_constraintStart_toStartOf="@id/tv_my_errand"
+            app:layout_constraintTop_toBottomOf="@id/tv_my_errand" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
