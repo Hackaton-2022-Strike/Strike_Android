@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kr.hs.hackton_2022.R
+import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -13,6 +14,7 @@ private const val ARG_PARAM2 = "param2"
 class MyDataFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var binding: FragmentMyDataBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +28,8 @@ class MyDataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_my_data, container, false)
+        binding = FragmentMyDataBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     companion object {
