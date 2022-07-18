@@ -1,6 +1,7 @@
 package kr.hs.hackton_2022
 
-import android.graphics.Paint
+import kr.hs.hackton_2022.data.JoinData
+import kr.hs.hackton_2022.data.LoginData
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

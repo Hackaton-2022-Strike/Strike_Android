@@ -1,16 +1,15 @@
 package kr.hs.hackton_2022
 
 import android.content.Intent
-import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
+import kr.hs.hackton_2022.data.JoinData
 import kr.hs.hackton_2022.databinding.ActivityJoinBinding
 import retrofit2.Call
 import retrofit2.Callback

@@ -1,17 +1,16 @@
 package kr.hs.hackton_2022
 
 import android.content.Intent
-import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import kr.hs.hackton_2022.data.LoginData
 import kr.hs.hackton_2022.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
