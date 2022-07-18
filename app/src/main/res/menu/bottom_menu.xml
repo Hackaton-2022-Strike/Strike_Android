@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/first_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="정보게시판" />
+    <item
+        android:id="@+id/second_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:icon="@drawable/hidden"
+        android:title="메인"/>
+    <item
+        android:id="third_tab"
+        app:showAsAction="always"
+        android:enabled="true"
+        android:title="내 정보"/>
+</menu>
