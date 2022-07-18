@@ -6,7 +6,7 @@ import android.view.MenuItem
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kr.hs.hackton_2022.databinding.ActivityMainBinding
-import kr.hs.hackton_2022.main.DataFragment
+import kr.hs.hackton_2022.main.MainFragment
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.data -> {
-                val data_fragment = DataFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.container, data_fragment)
+            R.id.main -> {
+                val main_fragment = MainFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, main_fragment)
                     .commit()
             }
         }

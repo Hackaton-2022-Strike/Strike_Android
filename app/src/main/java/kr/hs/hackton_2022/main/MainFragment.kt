@@ -9,15 +9,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.hackton_2022.R
 import kr.hs.hackton_2022.RegisterActivity
-import kr.hs.hackton_2022.databinding.FragmentDataBinding
+import kr.hs.hackton_2022.databinding.FragmentMainBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class DataFragment : Fragment() {
+class MainFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
-    private lateinit var binding: FragmentDataBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,7 +43,7 @@ class DataFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentDataBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
 
         return binding.root
     }
@@ -51,7 +51,7 @@ class DataFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            DataFragment().apply {
+            MainFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
