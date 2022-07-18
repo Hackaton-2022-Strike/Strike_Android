@@ -68,7 +68,10 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
     fun joinCheck(){
-        if (!Pattern.matches("^(?=.*[A-Za-z]).{5,11}.\$", IdEt.text.toString())) {
+        if(binding.etName.text.isNullOrBlank()){
+            binding.etName.requestFocus()
+            Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
+        }else if (!Pattern.matches("^(?=.*[A-Za-z]).{5,11}.\$", IdEt.text.toString())) {
             IdEt.requestFocus()
             Toast.makeText(this, "아이디는 6~12자 사이여야합니다.", Toast.LENGTH_SHORT).show()
         }else if (!Pattern.matches("^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[\$@\$!%*#?&]).{7,14}.\$", PwEt.text.toString())) {
@@ -77,11 +80,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         }else if(PwEt.text.toString() != RPwEt.text.toString()){
             RPwEt.requestFocus()
             Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
-        }else if(binding.etName.text.isNullOrBlank()){
-            binding.etName.requestFocus()
-            Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show()
-        }
-        else {
+        }else {
             val data = JoinData(binding.etName.text.toString(), IdEt.text.toString(), PwEt.text.toString())
             RetrofitBuilder.api.HackathonJoin(data).enqueue(object :
                 Callback<JoinData> {
