@@ -1,5 +1,6 @@
 package kr.hs.hackton_2022.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.hackton_2022.R
+import kr.hs.hackton_2022.RegisterActivity
 import kr.hs.hackton_2022.databinding.FragmentDataBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -33,7 +35,8 @@ class DataFragment : Fragment() {
     }
     fun initFabListener(){
         binding.fab.setOnClickListener {
-
+            val intent = Intent(requireContext(), RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
     override fun onCreateView(
