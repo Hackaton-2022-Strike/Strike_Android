@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import kr.hs.hackton_2022.PostData
+import kr.hs.hackton_2022.DetailPost
 import kr.hs.hackton_2022.data.ErRecycleData
 import kr.hs.hackton_2022.data.ErrecycleDataItem
 import kr.hs.hackton_2022.databinding.ItemListBinding
@@ -20,8 +20,9 @@ class ErRecyclerViewAdapter(val context: Context) :
             binding.tvTitle.text = data.Er_title
             binding.tvMain.text = data.Er_contents
             binding.layout.setOnClickListener {
-                Intent(context, PostData::class.java).apply {
+                Intent(context, DetailPost::class.java).apply {
                     putExtra("data", data)
+                    putExtra("type", "Er")
                 }.run { context.startActivity(this) }
             };
         }

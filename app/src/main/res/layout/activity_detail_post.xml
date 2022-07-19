@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailPost">
+
+    <ImageView
+        android:id="@+id/ProfileIcon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/profile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="김경민"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/ProfileIcon"
+        app:layout_constraintTop_toTopOf="@id/ProfileIcon"
+        app:layout_constraintBottom_toBottomOf="@id/ProfileIcon" />
+
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/ProfileIcon"
+        android:layout_marginTop="20dp"
+        android:id="@+id/Contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="~~~~~~~~~\n~~~~~~~~~\n~~~~~~~\n~\n~~~~~~\n~~~~~~"
+        android:layout_marginHorizontal="15dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
