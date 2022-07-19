@@ -7,9 +7,9 @@ import android.view.View
 import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kr.hs.hackton_2022.databinding.ActivityMainBinding
-import kr.hs.hackton_2022.main.DataFragment
 import kr.hs.hackton_2022.main.MainFragment
 import kr.hs.hackton_2022.main.MyDataFragment
+import kr.hs.hackton_2022.main.PostFragment
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
             }
             R.id.post -> {
-                val data_fragment = DataFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.container, data_fragment)
+                val post_fragment = PostFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, post_fragment)
                     .commit()
             }
         }

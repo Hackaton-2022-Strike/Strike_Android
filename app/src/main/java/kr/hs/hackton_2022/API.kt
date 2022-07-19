@@ -2,7 +2,8 @@ package kr.hs.hackton_2022
 
 import kr.hs.hackton_2022.data.JoinData
 import kr.hs.hackton_2022.data.LoginData
-import kr.hs.hackton_2022.data.RecycleData
+import kr.hs.hackton_2022.data.ErRecycleData
+import kr.hs.hackton_2022.data.infoRecycleData
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -16,5 +17,8 @@ interface API {
     fun HackathonJoin(@Body joinData: JoinData) : Call<JoinData>
 
     @GET("/Erviewposts")
-    fun getErposts() : Call<RecycleData>
+    fun getErposts() : Call<ErRecycleData>
+
+    @GET("/infoviewposts")
+    fun getinfoposts() : Call<infoRecycleData>
 }

@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.hs.hackton_2022.PostData
-import kr.hs.hackton_2022.data.RecycleData
-import kr.hs.hackton_2022.data.recycleDataItem
+import kr.hs.hackton_2022.data.ErRecycleData
+import kr.hs.hackton_2022.data.ErrecycleDataItem
 import kr.hs.hackton_2022.databinding.ItemListBinding
 
-class RecyclerViewAdapter(val context: Context) :
-    RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
-    var dataList : RecycleData? = null
+class ErRecyclerViewAdapter(val context: Context) :
+    RecyclerView.Adapter<ErRecyclerViewAdapter.MyViewHolder>() {
+    var dataListEr : ErRecycleData? = null
 
     inner class MyViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(data: recycleDataItem) {
+        fun bind(data: ErrecycleDataItem) {
             binding.tvTitle.text = data.Er_title
             binding.tvMain.text = data.Er_contents
             binding.layout.setOnClickListener {
@@ -33,10 +33,10 @@ class RecyclerViewAdapter(val context: Context) :
     }
 
     override fun getItemCount(): Int {
-        return dataList?.size ?: 0
+        return dataListEr?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(dataList!![position])
+        holder.bind(dataListEr!![position])
     }
 }
