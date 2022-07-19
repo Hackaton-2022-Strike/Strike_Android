@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat.getSystemService
 import kr.hs.hackton_2022.LoginActivity
+import kr.hs.hackton_2022.MainActivity
 import kr.hs.hackton_2022.MyPostActivity
 import kr.hs.hackton_2022.MyerrandActivity
 import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
@@ -71,12 +72,14 @@ class MyDataFragment : Fragment() {
             builder.setTitle("로그아웃 확인")
                 .setMessage("정말로 로그아웃하시겠습니까?")
                 .setPositiveButton("로그아웃", DialogInterface.OnClickListener {_, _ ->
+                    requireActivity().finish()
                     val intent = Intent(requireContext(), LoginActivity::class.java)
                     startActivity(intent)
                 })
                 .setNegativeButton("취소", DialogInterface.OnClickListener{_, _ ->
 
                 }).show()
+
         }
     }
     companion object {
