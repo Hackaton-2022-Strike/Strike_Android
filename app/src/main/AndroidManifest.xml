@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackton_2022">
         <activity
+            android:name=".ChangeDataActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyerrandActivity"
             android:exported="false" />
         <activity

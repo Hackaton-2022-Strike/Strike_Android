@@ -34,44 +34,36 @@
                 android:layout_marginStart="15dp"
                 android:src="@drawable/profile" />
 
-            <LinearLayout
-                app:layout_constraintStart_toEndOf="@id/profile_img"
-                app:layout_constraintTop_toTopOf="@id/profile_img"
-                app:layout_constraintBottom_toBottomOf="@id/profile_img"
-                app:layout_constraintEnd_toStartOf="@id/arrow_img"
-                android:id="@+id/profile_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical">
-
                 <TextView
+                    android:layout_marginStart="11dp"
+                    app:layout_constraintStart_toEndOf="@id/profile_img"
+                    app:layout_constraintTop_toTopOf="@id/profile_img"
                     android:id="@+id/tv_name"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="이름"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <TextView
+                    app:layout_constraintStart_toStartOf="@id/tv_name"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
                     android:id="@+id/tv_grade"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="학년 반 번호"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
-            </LinearLayout>
             <ImageView
-                android:id="@+id/arrow_img"
+                android:id="@+id/change_img"
                 android:layout_marginEnd="15dp"
-                app:layout_constraintStart_toEndOf="@id/profile_layout"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/profile_img"
-                app:layout_constraintBottom_toBottomOf="@id/profile_img"
-                android:layout_width="30dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toEndOf="@id/tv_name"
+                app:layout_constraintTop_toTopOf="@id/tv_name"
+                app:layout_constraintBottom_toBottomOf="@id/tv_name"
+                android:layout_width="10dp"
                 android:layout_height="0dp"
-                android:src="@drawable/arrow" />
+                android:src="@drawable/change" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -100,7 +92,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="30dp"
+                android:layout_width="15dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="15dp"
@@ -145,7 +137,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="30dp"
+                android:layout_width="15dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="15dp"

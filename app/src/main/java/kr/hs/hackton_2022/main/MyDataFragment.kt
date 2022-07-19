@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kr.hs.hackton_2022.ChangeDataActivity
 import kr.hs.hackton_2022.MyPostActivity
 import kr.hs.hackton_2022.MyerrandActivity
 import kr.hs.hackton_2022.R
@@ -37,6 +38,10 @@ class MyDataFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.linear.setOnClickListener {
+            val intent = Intent(requireContext(), ChangeDataActivity::class.java)
+            startActivity(intent)
+        }
         binding.writeLayout.setOnClickListener {
             val intent = Intent(requireContext(), MyPostActivity::class.java)
             startActivity(intent)
