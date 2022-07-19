@@ -10,6 +10,7 @@ import kr.hs.hackton_2022.databinding.ActivityMainBinding
 import kr.hs.hackton_2022.main.MainFragment
 import kr.hs.hackton_2022.main.MyDataFragment
 import kr.hs.hackton_2022.main.PostFragment
+import kr.hs.hackton_2022.main.SchoolDataFragment
 
 class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
     private lateinit var binding: ActivityMainBinding
@@ -28,7 +29,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.data -> {
-                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show()
+                val data_fragment = SchoolDataFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, data_fragment)
+                    .commit()
             }
             R.id.main -> {
                 val main_fragment = MainFragment()
