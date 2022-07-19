@@ -2,6 +2,7 @@ package kr.hs.hackton_2022
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import kr.hs.hackton_2022.data.ErrecycleDataItem
 import kr.hs.hackton_2022.data.infoRecycleDataItem
 import kr.hs.hackton_2022.databinding.ActivityDetailPostBinding
