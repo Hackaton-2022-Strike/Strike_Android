@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kr.hs.hackton_2022.databinding.ActivityMainBinding
 import kr.hs.hackton_2022.main.DataFragment
@@ -38,6 +39,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                 val my_data_fragment = MyDataFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.container, my_data_fragment)
                     .commit()
+            }
+            R.id.post -> {
+                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show()
             }
         }
         return true
