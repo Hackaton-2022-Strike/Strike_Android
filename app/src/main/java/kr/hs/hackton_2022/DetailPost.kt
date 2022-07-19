@@ -20,9 +20,17 @@ class DetailPost : AppCompatActivity() {
         if(type.equals("Er")){
             val data = intent.getSerializableExtra("data") as ErrecycleDataItem
             binding.Contents.text = data.Er_contents
+            binding.Title.text = data.Er_title
+            binding.writer.text = data.Er_writer
         } else {
             val data = intent.getSerializableExtra("data") as infoRecycleDataItem
             binding.Contents.text = data.info_contents
+            binding.Title.text = data.info_title
+            binding.writer.text = data.info_writer
+        }
+
+        binding.BackArrow.setOnClickListener{
+            finish()
         }
 
 

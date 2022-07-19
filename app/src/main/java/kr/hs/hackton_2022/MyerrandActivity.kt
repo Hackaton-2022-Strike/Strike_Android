@@ -24,6 +24,10 @@ class MyerrandActivity : AppCompatActivity() {
         setContentView(binding.root)
         getPosts()
         initDataRecyclerView()
+
+        binding.BackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     fun initDataRecyclerView() {

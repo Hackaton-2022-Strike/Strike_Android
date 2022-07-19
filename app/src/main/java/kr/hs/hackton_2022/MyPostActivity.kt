@@ -20,9 +20,12 @@ class MyPostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMyPostBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         getPosts()
         initDataRecyclerView()
+
+        binding.BackArrow.setOnClickListener {
+            finish()
+        }
     }
 
     fun initDataRecyclerView() {
