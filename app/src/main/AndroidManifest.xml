@@ -13,8 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hackton_2022">
         <activity
-            android:name=".ChangeDataActivity"
-            android:exported="false" />
+            android:name=".splash.SplashActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".MyerrandActivity"
             android:exported="false" />
@@ -32,12 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
