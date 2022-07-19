@@ -36,6 +36,9 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
         binding = ActivityJoinBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        PwEt.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        RPwEt.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+
         settingListener()
     }
     fun settingListener(){
