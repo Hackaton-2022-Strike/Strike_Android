@@ -5,12 +5,13 @@
         android:id="@+id/main"
         app:showAsAction="always"
         android:enabled="true"
-        android:icon="@drawable/hidden"
+        android:icon="@drawable/main"
         android:title="메인"/>
 
     <item
         android:id="@+id/data"
         app:showAsAction="always"
+        android:icon="@drawable/data"
         android:enabled="true"
         android:title="학교정보"/>
 
@@ -18,12 +19,14 @@
         android:id="@+id/post"
         app:showAsAction="always"
         android:enabled="true"
+        android:icon="@drawable/post"
         android:title="게시판" />
 
 
     <item
         android:id="@+id/my_data"
         app:showAsAction="always"
+        android:icon="@drawable/profile"
         android:enabled="true"
         android:title="프로필"/>
 </menu>
