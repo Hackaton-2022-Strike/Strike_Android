@@ -1,10 +1,13 @@
 package kr.hs.hackton_2022.main
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kr.hs.hackton_2022.MyPostActivity
+import kr.hs.hackton_2022.MyerrandActivity
 import kr.hs.hackton_2022.R
 import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
 
@@ -32,6 +35,17 @@ class MyDataFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.writeLayout.setOnClickListener {
+            val intent = Intent(requireContext(), MyPostActivity::class.java)
+            startActivity(intent)
+        }
+        binding.errandLayout.setOnClickListener {
+            val intent = Intent(requireContext(), MyerrandActivity::class.java)
+            startActivity(intent)
+        }
+    }
     companion object {
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
