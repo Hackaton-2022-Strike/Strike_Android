@@ -16,7 +16,7 @@
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".ErrandData"
+            android:name=".PostData"
             android:exported="false" />
         <activity
             android:name=".JoinActivity"
