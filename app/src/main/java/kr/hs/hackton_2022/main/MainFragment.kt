@@ -25,8 +25,6 @@ class MainFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-        initDataRecyclerView()
-        initFabListener()
     }
     fun initDataRecyclerView(){
         val adapter = RecyclerViewAdapter(requireContext())
@@ -46,6 +44,12 @@ class MainFragment : Fragment() {
         binding = FragmentMainBinding.inflate(inflater, container, false)
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initDataRecyclerView()
+        initFabListener()
     }
 
     companion object {
