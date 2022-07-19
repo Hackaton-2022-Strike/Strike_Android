@@ -81,7 +81,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
             RPwEt.requestFocus()
             Toast.makeText(this, "비밀번호가 일치하지않습니다.", Toast.LENGTH_SHORT).show()
         }else {
-            val data = JoinData(binding.etName.text.toString(), IdEt.text.toString(), PwEt.text.toString())
+            val data = JoinData(IdEt.text.toString(), binding.etName.text.toString(), PwEt.text.toString())
             RetrofitBuilder.api.HackathonJoin(data).enqueue(object :
                 Callback<JoinData> {
                 override fun onResponse(call: Call<JoinData>, response: Response<JoinData>) {

@@ -65,19 +65,23 @@
             app:layout_constraintEnd_toEndOf="@id/linear"
             app:layout_constraintStart_toStartOf="@id/linear"
             app:layout_constraintTop_toBottomOf="@id/linear" />
+
         <TextView
             android:id="@+id/tv_my_errand"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:layout_margin="12dp"
+            android:layout_marginTop="32dp"
             android:background="@drawable/textview_round"
             android:gravity="center_vertical"
             android:text="내가 올린 심부름 n개                                >"
             android:textColor="@color/black"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@id/tv_my_write"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/tv_my_write"
             app:layout_constraintTop_toBottomOf="@id/tv_my_write" />
+
         <TextView
             android:id="@+id/tv_my_data"
             android:layout_width="match_parent"

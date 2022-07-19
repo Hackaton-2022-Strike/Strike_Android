@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitBuilder {
     var api: API
-    private var serverIP: String = "10.80.161.136"
+    private var serverIP: String = "192.168.211.60"
 
     init {
         var okHttpClient = OkHttpClient.Builder()

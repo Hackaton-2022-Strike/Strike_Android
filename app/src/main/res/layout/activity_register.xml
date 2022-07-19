@@ -11,16 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentTop="true"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="#FFB900"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#FFB900">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/back_btn"
-            android:layout_marginLeft="5dp"
             android:layout_width="25dp"
             android:layout_height="29dp"
-            android:background="@drawable/ic_launcher_foreground"/>
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/ic_launcher_foreground" />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
@@ -34,32 +36,45 @@
 
     <EditText
         android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
         android:layout_margin="15dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header"
         android:layout_marginTop="15dp"
+        android:background="@drawable/textview_round"
         android:hint="타이틀 입력"
+        android:paddingLeft="8dp"
         android:textColor="@color/black"
         android:textSize="15dp"
-        android:background="@drawable/textview_round"
-        android:layout_width="match_parent"
-        android:layout_height="37dp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
+
     <EditText
         android:id="@+id/et_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:textSize="10sp"
-        android:textColor="@color/black"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/textview_round"
         android:hint="내용 입력"
+        android:inputType="textMultiLine"
         android:isScrollContainer="true"
         android:maxHeight="100dp"
-        android:inputType="textMultiLine"
-        android:background="@drawable/textview_round"
-        app:layout_constraintStart_toStartOf="@id/et_title"
+        android:paddingLeft="8dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@id/et_title"
-        app:layout_constraintTop_toBottomOf="@id/et_title"
-        android:layout_marginTop="17dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintStart_toStartOf="@id/et_title"
+        app:layout_constraintTop_toBottomOf="@id/et_title" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/save_btn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="저장하기"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/et_main"
+        app:layout_constraintStart_toStartOf="@id/et_main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
