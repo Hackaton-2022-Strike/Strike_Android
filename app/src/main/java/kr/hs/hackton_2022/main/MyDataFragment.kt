@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kr.hs.hackton_2022.ChangeDataActivity
 import kr.hs.hackton_2022.MyPostActivity
 import kr.hs.hackton_2022.MyerrandActivity
-import kr.hs.hackton_2022.R
 import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
 
 private const val ARG_PARAM1 = "param1"
@@ -38,10 +36,6 @@ class MyDataFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.linear.setOnClickListener {
-            val intent = Intent(requireContext(), ChangeDataActivity::class.java)
-            startActivity(intent)
-        }
         binding.writeLayout.setOnClickListener {
             val intent = Intent(requireContext(), MyPostActivity::class.java)
             startActivity(intent)
@@ -49,6 +43,18 @@ class MyDataFragment : Fragment() {
         binding.errandLayout.setOnClickListener {
             val intent = Intent(requireContext(), MyerrandActivity::class.java)
             startActivity(intent)
+        }
+        binding.changeImg.setOnClickListener {
+            if(binding.changeImg.tag.equals("0")){
+                binding.changeImg.tag = 1
+                binding.etName.setEnabled(true)
+                binding.etGrade.setEnabled(true)
+                binding.etName.requestFocus()
+            }else {
+                binding.changeImg.tag = 0
+                binding.etName.setEnabled(false)
+                binding.etGrade.setEnabled(false)
+            }
         }
     }
     companion object {
