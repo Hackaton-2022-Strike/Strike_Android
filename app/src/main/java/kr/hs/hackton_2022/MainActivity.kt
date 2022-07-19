@@ -26,9 +26,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.data -> {
-                val data_fragment = DataFragment()
-                supportFragmentManager.beginTransaction().replace(R.id.container, data_fragment)
-                    .commit()
+                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show()
             }
             R.id.main -> {
                 val main_fragment = MainFragment()
@@ -41,7 +39,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
                     .commit()
             }
             R.id.post -> {
-                Toast.makeText(this, "null", Toast.LENGTH_SHORT).show()
+                val data_fragment = DataFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.container, data_fragment)
+                    .commit()
             }
         }
         return true

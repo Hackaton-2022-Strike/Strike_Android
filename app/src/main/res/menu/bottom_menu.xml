@@ -12,13 +12,14 @@
         android:id="@+id/data"
         app:showAsAction="always"
         android:enabled="true"
-        android:title="학교정보" />
+        android:title="학교정보"/>
 
     <item
         android:id="@+id/post"
         app:showAsAction="always"
         android:enabled="true"
         android:title="게시판" />
+
 
     <item
         android:id="@+id/my_data"
