@@ -1,11 +1,14 @@
 package kr.hs.hackton_2022.main
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat.getSystemService
 import kr.hs.hackton_2022.MyPostActivity
 import kr.hs.hackton_2022.MyerrandActivity
 import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
@@ -49,7 +52,11 @@ class MyDataFragment : Fragment() {
                 binding.changeImg.tag = 1
                 binding.etName.setEnabled(true)
                 binding.etGrade.setEnabled(true)
+                binding.etName.setSelection(binding.etName.length())
+                val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
                 binding.etName.requestFocus()
+
             }else {
                 binding.changeImg.tag = 0
                 binding.etName.setEnabled(false)
