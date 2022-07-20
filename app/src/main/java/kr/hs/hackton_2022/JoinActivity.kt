@@ -93,7 +93,7 @@ class JoinActivity : AppCompatActivity(), View.OnClickListener {
 
                     val intent = Intent(applicationContext, LoginActivity::class.java)
                     Toast.makeText(applicationContext, "회원가입 성공!", Toast.LENGTH_SHORT).show()
-                    finish()
+                    finishAffinity()
                     startActivity(intent)
                 }
 
