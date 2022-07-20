@@ -15,6 +15,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MyerrandActivity : AppCompatActivity() {
+    private var appDatabase: AppDatabase? = null
     private lateinit var binding : ActivityMyerrandBinding
     private var dataEr : ErRecycleData? = null
 
@@ -22,6 +23,7 @@ class MyerrandActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMyerrandBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        appDatabase = AppDatabase.getInstance(this)
         getPosts()
         initDataRecyclerView()
 
@@ -38,7 +40,7 @@ class MyerrandActivity : AppCompatActivity() {
     }
     private fun getPosts() {
         //val data = LoginData(binding.etId.text.toString(), binding.etPw.text.toString())
-        RetrofitBuilder.api.getErposts().enqueue(object :
+        RetrofitBuilder.api.getmyEr(appDatabase!!.dao().getAll().mb_id).enqueue(object :
             Callback<ErRecycleData> {
             override fun onResponse(call: Call<ErRecycleData>, response: Response<ErRecycleData>) {
                 if (response.isSuccessful) {

@@ -2,9 +2,7 @@ package kr.hs.hackton_2022
 
 import kr.hs.hackton_2022.data.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface API {
     @POST("/login")
@@ -24,4 +22,13 @@ interface API {
 
     @POST("/Erpost")
     fun Erpost(@Body postdata: PostData) : Call<PostData>
+
+    @POST("/infopost")
+    fun infopost(@Body postdata: PostData) : Call<PostData>
+
+    @GET("/getmyEr")
+    fun getmyEr(@Query("id")id : String) : Call<ErRecycleData>
+
+    @GET("/getmyinfo")
+    fun getmyinfo(@Query("id") id : String) : Call<infoRecycleData>
 }

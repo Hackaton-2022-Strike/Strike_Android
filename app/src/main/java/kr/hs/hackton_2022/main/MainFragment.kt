@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import kr.hs.hackton_2022.*
 import kr.hs.hackton_2022.data.ErRecycleData
@@ -23,6 +25,7 @@ class MainFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
     private fun initDataRecyclerView(){
         val adapter = ErRecyclerViewAdapter(requireContext())
@@ -36,6 +39,7 @@ class MainFragment : Fragment() {
     private fun initFabListener(){
         binding.fab.setOnClickListener {
             val intent = Intent(requireContext(), RegisterActivity::class.java)
+            intent.putExtra("type", "Er")
             startActivity(intent)
         }
     }
@@ -80,4 +84,5 @@ class MainFragment : Fragment() {
             }
         })
     }
+
 }

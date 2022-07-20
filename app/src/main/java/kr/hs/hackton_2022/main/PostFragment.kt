@@ -38,6 +38,7 @@ class PostFragment : Fragment() {
     fun initFabListener(){
         binding.fab.setOnClickListener {
             val intent = Intent(requireContext(), RegisterActivity::class.java)
+            intent.putExtra("type", "info")
             startActivity(intent)
         }
     }
