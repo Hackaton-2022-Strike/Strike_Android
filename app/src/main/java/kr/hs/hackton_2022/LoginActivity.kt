@@ -14,6 +14,7 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityLoginBinding
+    private var appDatabase: AppDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,13 +22,27 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         settingListener()
+        appDatabase = AppDatabase.getInstance(this)
+        isLogin()
+
 
     }
 
     private fun settingListener() {
         binding.loginBtn.setOnClickListener(this)
         binding.joinBtn.setOnClickListener(this)
-11    }
+    }
+
+    private fun isLogin() {
+            val Login: UserEntity? = appDatabase!!.dao().getAll()
+            //Log.d("TAG1357", Login.mb_id)
+            if (Login != null) {
+                val intent = Intent(applicationContext, MainActivity::class.java)
+                finish()
+                startActivity(intent)
+
+            }
+    }
 
     override fun onClick(v: View?) {
         when (v) {
@@ -45,24 +60,33 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private fun CheckLogin() {
         val data = LoginData(binding.etId.text.toString(), binding.etPw.text.toString())
         RetrofitBuilder.api.Hackathonlogin(data).enqueue(object :
-            Callback<LoginData> {
-            override fun onResponse(call: Call<LoginData>, response: Response<LoginData>) {
+            Callback<UserEntity> {
+            override fun onResponse(call: Call<UserEntity>, response: Response<UserEntity>) {
                 if (response.isSuccessful) {
-                    var data = response.body().toString()
-                    Log.d("TAG", data)
+                    var data: UserEntity? = response.body()
 
                     val intent = Intent(applicationContext, MainActivity::class.java)
                     Toast.makeText(applicationContext, "로그인 성공!", Toast.LENGTH_SHORT).show()
                     finish()
                     startActivity(intent)
+                    InsertData(data!!)
 
                 }
             }
 
-            override fun onFailure(call: Call<LoginData>, t: Throwable) {
+            override fun onFailure(call: Call<UserEntity>, t: Throwable) {
                 Log.d("Tag", t.toString())
                 Toast.makeText(applicationContext, "로그인에 실패하셨습니다.", Toast.LENGTH_SHORT).show()
             }
         })
+    }
+
+    private fun InsertData(data: UserEntity) {
+
+
+        var res = appDatabase?.dao()?.insert(data)
+        Log.d("TAG1234", res.toString())
+
+        Log.d("TAG1234", "datas : " + appDatabase?.dao()?.getAll())
     }
 }

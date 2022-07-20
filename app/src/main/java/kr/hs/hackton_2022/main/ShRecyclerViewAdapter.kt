@@ -6,13 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kr.hs.hackton_2022.DetailPost
-import kr.hs.hackton_2022.data.SchoolData
 import kr.hs.hackton_2022.data.SchoolDataItem
 import kr.hs.hackton_2022.databinding.ItemListBinding
 
 class ShRecyclerViewAdapter(val context: Context) :
     RecyclerView.Adapter<ShRecyclerViewAdapter.MyViewHolder>() {
-        var dataListSh : SchoolData? = null
+        var dataListSh : MutableList<SchoolDataItem>? = null
 
         inner class MyViewHolder(private val binding: ItemListBinding) :
             RecyclerView.ViewHolder(binding.root) {

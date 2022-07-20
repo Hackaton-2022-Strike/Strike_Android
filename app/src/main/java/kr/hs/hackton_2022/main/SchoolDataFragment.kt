@@ -6,22 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import kr.hs.hackton_2022.R
-import kr.hs.hackton_2022.data.SchoolData
+import kr.hs.hackton_2022.data.SchoolDataItem
 import kr.hs.hackton_2022.databinding.FragmentSchoolDataBinding
 
 
 class SchoolDataFragment : Fragment() {
     private lateinit var binding : FragmentSchoolDataBinding
-    private var dataSh : SchoolData? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
     private fun initDataRecyclerView(){
+        var list = mutableListOf(
+            SchoolDataItem("title", "name", "contents"),
+            SchoolDataItem("title", "name", "contents"),
+            SchoolDataItem("title", "name", "contents"),
+            SchoolDataItem("title", "name", "contents")
+        )
         val adapter = ShRecyclerViewAdapter(requireContext())
-        adapter.dataListSh = dataSh
+        adapter.dataListSh = list
         binding.recycler.adapter = adapter
         binding.recycler.layoutManager = LinearLayoutManager(requireContext())
     }

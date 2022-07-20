@@ -5,32 +5,30 @@ import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
-import kr.hs.hackton_2022.LoginActivity
-import kr.hs.hackton_2022.MainActivity
-import kr.hs.hackton_2022.MyPostActivity
-import kr.hs.hackton_2022.MyerrandActivity
+import kr.hs.hackton_2022.*
+import kr.hs.hackton_2022.data.JoinData
+import kr.hs.hackton_2022.data.LoginData
 import kr.hs.hackton_2022.databinding.FragmentMyDataBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class MyDataFragment : Fragment() {
-    private var param1: String? = null
-    private var param2: String? = null
     private lateinit var binding: FragmentMyDataBinding
+    private lateinit var userinfo : UserEntity
+    private var appDatabase: AppDatabase? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -43,6 +41,10 @@ class MyDataFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        appDatabase = AppDatabase.getInstance(requireContext())
+        userinfo  = appDatabase!!.dao().getAll()
+        binding.etName.setText(userinfo.mb_name)
+
         binding.writeLayout.setOnClickListener {
             val intent = Intent(requireContext(), MyPostActivity::class.java)
             startActivity(intent)
@@ -54,17 +56,19 @@ class MyDataFragment : Fragment() {
         binding.changeImg.setOnClickListener {
             if(binding.changeImg.tag.equals("0")){
                 binding.changeImg.tag = 1
-                binding.etName.setEnabled(true)
-                binding.etGrade.setEnabled(true)
+                binding.etName.isEnabled = true
                 binding.etName.setSelection(binding.etName.length())
                 val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
                 binding.etName.requestFocus()
 
             }else {
+                appDatabase!!.dao().update(binding.etName.text.toString(), userinfo.mb_name)
+                userinfo = appDatabase!!.dao().getAll()
+                UpdateUser()
                 binding.changeImg.tag = 0
-                binding.etName.setEnabled(false)
-                binding.etGrade.setEnabled(false)
+                binding.etName.isEnabled = false
+
             }
         }
         binding.logoutLayout.setOnClickListener {
@@ -72,6 +76,7 @@ class MyDataFragment : Fragment() {
             builder.setTitle("로그아웃 확인")
                 .setMessage("정말로 로그아웃하시겠습니까?")
                 .setPositiveButton("로그아웃", DialogInterface.OnClickListener {_, _ ->
+                    appDatabase!!.dao().delete()
                     requireActivity().finish()
                     val intent = Intent(requireContext(), LoginActivity::class.java)
                     startActivity(intent)
@@ -82,14 +87,18 @@ class MyDataFragment : Fragment() {
 
         }
     }
-    companion object {
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MyDataFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+
+    private fun UpdateUser() {
+        RetrofitBuilder.api.updatemy(userinfo).enqueue(object :
+            Callback<UserEntity> {
+            override fun onResponse(call: Call<UserEntity>, response: Response<UserEntity>) {
+                Toast.makeText(requireContext(), "정보 변경 완료", Toast.LENGTH_SHORT).show()
             }
+
+            override fun onFailure(call: Call<UserEntity>, t: Throwable) {
+                Log.d("Tag", t.toString())
+                Toast.makeText(requireContext(), "정보 변경 실패", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

@@ -22,7 +22,7 @@
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/profile_img"
@@ -48,18 +48,7 @@
                 app:layout_constraintStart_toEndOf="@id/profile_img"
                 app:layout_constraintTop_toTopOf="@id/profile_img" />
 
-            <EditText
-                android:id="@+id/et_grade"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="#00ff0000"
-                android:enabled="false"
-                android:text="학년 반 번호"
-                android:maxLines="1"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@id/et_name"
-                app:layout_constraintTop_toBottomOf="@id/et_name" />
+
 
             <ImageView
                 android:id="@+id/change_img"
