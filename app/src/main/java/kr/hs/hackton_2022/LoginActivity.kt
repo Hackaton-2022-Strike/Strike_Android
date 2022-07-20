@@ -3,6 +3,7 @@ package kr.hs.hackton_2022
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -24,7 +25,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         settingListener()
         appDatabase = AppDatabase.getInstance(this)
         isLogin()
-
 
     }
 
